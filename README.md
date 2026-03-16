@@ -209,4 +209,22 @@ Ensure MPS is being used (you should see `Device: mps` in the output). If it fal
 
 ## License
 
-This project uses [Demucs](https://github.com/facebookresearch/demucs) by Meta Research, licensed under the MIT License. Model weights are provided by Meta under the same license.
+MIT License. See [LICENSE](LICENSE) for details.
+
+### Third-Party Licenses
+
+This project bundles or depends on the following third-party software:
+
+| Component | License | Usage |
+|---|---|---|
+| [Demucs](https://github.com/facebookresearch/demucs) (Meta Research) | MIT | Audio source separation model and library |
+| [PyTorch](https://pytorch.org) | BSD-3-Clause | Deep learning runtime |
+| [NumPy](https://numpy.org) | BSD-3-Clause | Numerical computing |
+| [soundfile](https://github.com/bastibe/python-soundfile) | BSD-3-Clause | Audio I/O Python bindings |
+| [libsndfile](http://www.mega-nerd.com/libsndfile/) | **LGPL-2.1** | Audio I/O C library (bundled as shared library in binary) |
+| [julius](https://github.com/adefossez/julius) | MIT | Audio resampling |
+| [openunmix](https://github.com/sigsep/open-unmix-pytorch) | MIT | Signal processing utilities |
+| [tqdm](https://github.com/tqdm/tqdm) | MPL-2.0 / MIT | Progress bars |
+| [PyInstaller](https://www.pyinstaller.org) | GPL-2.0 with exception | Binary packaging (build-time only, exception allows non-free binaries) |
+
+**Note on LGPL:** The compiled binary bundles `libsndfile` as a dynamically-linked shared library (`.dylib`/`.so`/`.dll`), which is compliant with the LGPL-2.1. The library can be replaced by the end user by extracting the binary contents and swapping the shared library file. The full LGPL-2.1 license text is included in the bundled `_soundfile_data/COPYING` inside the binary.

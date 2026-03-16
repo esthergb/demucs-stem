@@ -23,10 +23,7 @@ sndfile_data = Path(_soundfile_data.__file__).parent
 a = Analysis(
     ['separate.py'],
     pathex=[],
-    binaries=[
-        # lameenc is a C extension (.so) needed by demucs.audio for MP3
-        (str(next(Path(demucs_pkg).parent.glob('lameenc*.so'))), '.'),
-    ],
+    binaries=[],
     datas=[
         # Embed model weights + YAML config
         ('models', 'models'),
@@ -68,6 +65,8 @@ a = Analysis(
     excludes=[
         # Exclude torchcodec (needs FFmpeg .dylib) — we use soundfile instead
         'torchcodec',
+        # Exclude lameenc (LGPL) — we only output WAV, no MP3 needed
+        'lameenc',
         # Exclude heavy unused modules to reduce binary size
         'matplotlib',
         'PIL',
