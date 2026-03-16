@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# PyInstaller
+build/
+dist/
+*.spec.bak
+
+# Model weights (too large for git, download or build locally)
+models/*.th
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# macOS
+.DS_Store
+
+# Research docs
+research/
